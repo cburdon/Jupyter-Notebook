@@ -50,9 +50,9 @@ date_list = []
 country_list = []
 long_list = []
 #loop through lat, long, find nearest city, make api calls for json data
-for long in long_params:
+for lon in long_params:
     for lat in lat_params:
-        city = citipy.nearest_city(lat, long).city_name
+        city = citipy.nearest_city(lat, lon).city_name
         url = base_url + "appid=" + weather_api + "&q=" + city +"&units=imperial"
         response = requests.get(url)
         data = response.json()
