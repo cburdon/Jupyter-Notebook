@@ -35,7 +35,8 @@ base_url = 'http://api.openweathermap.org/data/2.5/weather?'
 
 
 ```python
-#set lat, long ranges.  Declare lists for weather variables. Included in loop cell to make blank lists every time it's run.
+#set lat, long ranges.  Declare lists for weather variables. 
+#Included in loop cell to make blank lists every time it's run.
 lat_params = np.arange(-90, 90, 10)
 long_params = np.random.uniform(-180, 180, 130)
 cities = []
