@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Scrape Mars</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="jumbotron">
+            <h1>Mission to Mars</h1>
+            <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Get Mars Weather!</a></p>
+
+        </div>
+        <hr>
+        <div class="row">
+            <div class="col-md-12">
+                <h2>Latest Mars News</h2>
+                <p> <b>{{mars_scraped.news_title}} </b>
+                    <hr>
+                    {{mars_scraped.news_p}}
+                </p>
+            </div>
+        
+        </div>
+        <div class="row">
+            <div class="col-md-8">
+                <h2>Featured Mars Image</h2>
+                
+                    <img src="{{mars_scraped.image}}" alt="featured image">
+                
+            </div>
+            <div class="col-md-4">
+                <h3>Current Weather on Mars</h3>
+                <p>
+                    {{mars_scraped.weather}}
+                </p>
+                <div>
+                    <h3>Mars Facts</h3>
+                    {{mars_scraped.facts | safe}}
+                </div>
+                    
+                
+            </div>
+        </div>
+
+            
+                <div class = "row">
+                    <div class="col-md-12">
+                        <h1>Mars Hemispheres</h1>
+                    </div>
+                </div>
+                <div class = "row">
+                    {% for hemisphere in mars_scraped.hemispheres %}
+                    <div class="col-md-6">
+                            <div class="card" style="width: 20rem;">
+                                <div class="card-body">
+                                <img src="{{hemisphere['img_url']}}", alt= {{hemisphere['title']}} height = '250%' width = "250%">
+                                <h5 class="card-text"><b>{{hemisphere['title']}}</b></h5>
+                                </div>
+                              </div>
+                          </div>
+                    {% endfor %}
+                </div>
+
+                
+
+    
+        
+       
+
+            
+
+    </div>
+
+</body>
+
+</html>
